@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Renato Ferrari — Deckhand M/Y</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy:   #0a1b40;
+  --deep:   #011434;
+  --coral:  #ed8880;
+  --bg:     #f0f0f0;
+  --white:  #ffffff;
+  --body:   #3a3a3a;
+  --muted:  #747474;
+  --s-text: rgba(255,255,255,0.85);
+  --s-sub:  rgba(255,255,255,0.55);
+  --s-div:  rgba(237,136,128,0.22);
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: var(--bg);
+  color: var(--body);
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.cv {
+  max-width: 960px;
+  margin: 24px auto;
+  box-shadow: 0 10px 48px rgba(0,0,0,0.18);
+}
+
+/* ── HEADER ─────────────────────────────────── */
+.cv-header {
+  background: var(--navy);
+  padding: 38px 48px 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cv-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--coral);
+}
+
+/* Decorative circle — echoes TCN's wave motifs */
+.cv-header::after {
+  content: '';
+  position: absolute;
+  right: -60px;
+  top: -100px;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  border: 52px solid rgba(237,136,128,0.06);
+  pointer-events: none;
+}
+
+.h-inner { position: relative; z-index: 1; }
+
+.h-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 1;
+}
+
+.h-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-top: 10px;
+}
+
+.h-rule {
+  width: 52px;
+  height: 3px;
+  background: var(--coral);
+  margin: 15px 0;
+}
+
+.h-tagline {
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.6);
+  font-style: italic;
+  line-height: 1.75;
+  max-width: 540px;
+}
+
+/* ── BODY ────────────────────────────────────── */
+.cv-body { display: flex; }
+
+/* ── SIDEBAR ─────────────────────────────────── */
+.sidebar {
+  width: 30%;
+  background: var(--deep);
+  padding: 28px 22px 36px;
+  color: var(--s-text);
+}
+
+.s-section { margin-bottom: 24px; }
+
+.s-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--coral);
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--s-div);
+  margin-bottom: 11px;
+}
+
+/* Contact */
+.c-row {
+  display: flex;
+  gap: 9px;
+  margin-bottom: 8px;
+  align-items: flex-start;
+}
+
+.c-key {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--coral);
+  padding-top: 1px;
+  flex-shrink: 0;
+  width: 14px;
+}
+
+.c-val {
+  font-size: 11px;
+  color: rgba(255,255,255,0.78);
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+/* Certs */
+.cert {
+  font-size: 11px;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.4;
+  padding: 5px 0 5px 11px;
+  position: relative;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.cert:last-child { border-bottom: none; }
+.cert::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 11px;
+  width: 5px; height: 2px;
+  background: var(--coral);
+  border-radius: 1px;
+}
+
+/* Languages */
+.lang { margin-bottom: 11px; }
+.lang-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+.lang-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.88);
+}
+.lang-lv {
+  font-size: 8.5px;
+  color: var(--coral);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+}
+.bar-bg {
+  height: 3px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 2px;
+}
+.bar { height: 100%; background: var(--coral); border-radius: 2px; }
+
+/* Skills */
+.skill {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.75);
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  line-height: 1.45;
+}
+.skill:last-child { border-bottom: none; }
+.sk-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--coral);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.sea-badge {
+  display: inline-block;
+  background: var(--coral);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8.5px;
+  font-weight: 800;
+  padding: 3px 8px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+/* ── MAIN ────────────────────────────────────── */
+.main {
+  width: 70%;
+  background: var(--white);
+  padding: 28px 38px 36px;
+}
+
+.m-section { margin-bottom: 24px; }
+
+.m-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.m-title::before {
+  content: '';
+  width: 18px; height: 3px;
+  background: var(--coral);
+  flex-shrink: 0;
+}
+.m-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #ebebeb;
+}
+
+.profile-text {
+  font-size: 13px;
+  line-height: 1.82;
+  color: #545454;
+}
+
+/* Timeline */
+.timeline {
+  padding-left: 18px;
+  border-left: 2px solid #ebebeb;
+  position: relative;
+}
+
+.exp {
+  position: relative;
+  padding-left: 15px;
+  margin-bottom: 20px;
+}
+.exp:last-child { margin-bottom: 0; }
+
+.exp::before {
+  content: '';
+  position: absolute;
+  left: -20px; top: 7px;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--coral);
+  border: 2px solid #fff;
+  outline: 1.5px solid var(--coral);
+}
+
+.exp-vessel {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+}
+
+.exp-role {
+  font-size: 10px;
+  color: var(--coral);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+.exp-date {
+  font-size: 10px;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 1px;
+}
+
+.exp-bullets {
+  list-style: none;
+  margin-top: 6px;
+}
+.exp-bullets li {
+  font-size: 12.5px;
+  color: #545454;
+  line-height: 1.65;
+  padding-left: 13px;
+  position: relative;
+}
+.exp-bullets li::before {
+  content: '—';
+  position: absolute;
+  left: 0; top: 0;
+  color: #ccc;
+  font-size: 9px;
+  line-height: 1.8;
+}
+
+/* ── FOOTER ──────────────────────────────────── */
+.cv-footer {
+  background: var(--navy);
+  padding: 10px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.f-l {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 8.5px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.28);
+}
+.f-r {
+  font-size: 10px;
+  color: var(--coral);
+  font-style: italic;
+  opacity: 0.7;
+}
+
+@media print {
+  body { background: #fff; }
+  .cv { margin: 0; max-width: 100%; box-shadow: none; }
+}
+
+@media (max-width: 680px) {
+  .cv-body { flex-direction: column; }
+  .sidebar, .main { width: 100%; }
+  .h-name { font-size: 28px; }
+}
+</style>
+</head>
+<body>
+
+<div class="cv">
+
+  <!-- ── HEADER ── -->
+  <header class="cv-header">
+    <div class="h-inner">
+      <div class="h-name">Renato Ferrari</div>
+      <div class="h-title">Deckhand &nbsp;·&nbsp; M/Y</div>
+      <div class="h-rule"></div>
+      <div class="h-tagline">
+        Italian Navy discipline · 6 years VIP tender operations at global luxury resorts<br>
+        High-standard exterior maintenance · Zero-drama · Long-term motor yacht career
+      </div>
+    </div>
+  </header>
+
+  <!-- ── BODY ── -->
+  <div class="cv-body">
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="sidebar">
+
+      <div class="s-section">
+        <div class="s-title">Contact</div>
+        <div class="c-row">
+          <span class="c-key">T</span>
+          <span class="c-val">+39 340 812 4252</span>
+        </div>
+        <div class="c-row">
+          <span class="c-key">E</span>
+          <span class="c-val">renato.ferrari.gi@gmail.com</span>
+        </div>
+        <div class="c-row">
+          <span class="c-key">L</span>
+          <span class="c-val">Lake Garda, Italy</span>
+        </div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-title">Certifications</div>
+        <div class="cert">STCW Basic Training — Valid</div>
+        <div class="cert">ENG1 — Valid</div>
+        <div class="cert">RYA Powerboat Level 2</div>
+        <div class="cert">Italian Boating License (Up to 24m, Unlimited Power)</div>
+        <div class="cert">PADI Open Water</div>
+        <div class="cert">Lifeguard Certificate</div>
+        <div class="cert" style="color:rgba(237,136,128,0.65);font-style:italic;border-top:1px solid rgba(237,136,128,0.12);margin-top:4px;padding-top:7px;">&#43; VHF SRC (RYA) — exam in preparation</div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-title">Languages</div>
+        <div class="lang">
+          <div class="lang-top">
+            <span class="lang-name">Italian</span>
+            <span class="lang-lv">Native</span>
+          </div>
+          <div class="bar-bg"><div class="bar" style="width:100%"></div></div>
+        </div>
+        <div class="lang">
+          <div class="lang-top">
+            <span class="lang-name">English</span>
+            <span class="lang-lv">Advanced</span>
+          </div>
+          <div class="bar-bg"><div class="bar" style="width:80%"></div></div>
+        </div>
+        <div class="lang">
+          <div class="lang-top">
+            <span class="lang-name">German</span>
+            <span class="lang-lv">Fluent</span>
+          </div>
+          <div class="bar-bg"><div class="bar" style="width:62%"></div></div>
+        </div>
+        <div class="lang">
+          <div class="lang-top">
+            <span class="lang-name">French</span>
+            <span class="lang-lv">Basic</span>
+          </div>
+          <div class="bar-bg"><div class="bar" style="width:28%"></div></div>
+        </div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-title">Core Skills</div>
+        <div style="margin-bottom:10px;">
+          <div class="sea-badge">3,000+ NM Sea Time</div><br>
+          <span style="font-size:10px;color:rgba(255,255,255,0.4);">2× Italy full tours</span>
+        </div>
+        <div class="skill"><div class="sk-dot"></div>Tender driving — RIB, jet &amp; outboard</div>
+        <div class="skill"><div class="sk-dot"></div>Mooring, anchoring &amp; lines</div>
+        <div class="skill"><div class="sk-dot"></div>Exterior detailing &amp; wash downs</div>
+        <div class="skill"><div class="sk-dot"></div>Teak maintenance &amp; sanding</div>
+        <div class="skill"><div class="sk-dot"></div>Paint &amp; varnish care</div>
+        <div class="skill"><div class="sk-dot"></div>Safety, watchkeeping &amp; lifeguarding</div>
+        <div class="skill"><div class="sk-dot"></div>VIP guest service &amp; logistics</div>
+        <div class="skill"><div class="sk-dot"></div>Wood assembly &amp; milling</div>
+      </div>
+
+    </aside>
+
+    <!-- ── MAIN ── -->
+    <main class="main">
+
+      <div class="m-section">
+        <div class="m-title">Profile</div>
+        <p class="profile-text">
+          Professional deckhand with a strong military background from the Italian Navy / San Marco Marine Brigade and 6 years as a Water Sports &amp; Tender Operator at global luxury resorts. Highly confident RIB and tender driver with thousands of operational hours. Offers high-standard exterior maintenance with a disciplined, zero-drama approach. Focused on long-term career progression on motor yachts toward deck leadership, bridge exposure, and Yachtmaster 200GT.
+        </p>
+      </div>
+
+      <div class="m-section">
+        <div class="m-title">Experience</div>
+
+        <div class="timeline">
+
+          <div class="exp">
+            <div class="exp-vessel">M/Y Amaia — 32 m Charter</div>
+            <div class="exp-role">Deckhand · Solo Deck Replacement</div>
+            <div class="exp-date">Sep – Oct 2025</div>
+            <ul class="exp-bullets">
+              <li>Mooring &amp; anchoring operations</li>
+              <li>Guest logistics &amp; service-oriented deck operations</li>
+              <li>Solo deck management throughout charter season</li>
+            </ul>
+          </div>
+
+          <div class="exp">
+            <div class="exp-vessel">S/Y Principessa VAI VIA — 40 m</div>
+            <div class="exp-role">Deckhand / First Officer Assistant</div>
+            <div class="exp-date">Jun – Jul 2025</div>
+            <ul class="exp-bullets">
+              <li>Mooring, anchoring &amp; full deck maintenance</li>
+              <li>Watchkeeping duties &amp; deck operations</li>
+              <li>Guest service, tender driving, owner car driver</li>
+            </ul>
+          </div>
+
+          <div class="exp">
+            <div class="exp-vessel">M/Y CD Two — 43 m Classic</div>
+            <div class="exp-role">Deckhand · Pre-season Preparation &amp; Daywork</div>
+            <div class="exp-date">Apr – May 2025</div>
+            <ul class="exp-bullets">
+              <li>Deck maintenance, anchor painting &amp; varnishing</li>
+              <li>Exterior detailing &amp; refit support</li>
+              <li>Pre-season preparation &amp; shipyard assistance</li>
+            </ul>
+          </div>
+
+          <div class="exp">
+            <div class="exp-vessel">Daywork &amp; Shipyard — Various Vessels</div>
+            <div class="exp-role">Freelance Deckhand · Shipyard Support</div>
+            <div class="exp-date">2023 – 2025</div>
+            <ul class="exp-bullets">
+              <li>M/Y Carpe Diem SL 86 (26.76 m) — Full teak deck sanding (1 week)</li>
+              <li>S/Y Lagoon 38 / 42 / 46 — Mast ops, nav lights, rigging, camera setup</li>
+              <li>M/Y 60 m — Genoa Porto Antico — Wash down &amp; exterior detailing</li>
+            </ul>
+          </div>
+
+          <div class="exp">
+            <div class="exp-vessel">Water Sports &amp; Tender Operator</div>
+            <div class="exp-role">Global Luxury Resorts — Various Locations</div>
+            <div class="exp-date">Mar 2010 – Nov 2016</div>
+            <ul class="exp-bullets">
+              <li>Thousands of hours operating RIBs for VIP transfers &amp; safety cover</li>
+              <li>5-star HNW guest hospitality, daily washdowns &amp; strict safety protocols</li>
+              <li>Water sports instruction &amp; full equipment maintenance</li>
+            </ul>
+          </div>
+
+          <div class="exp">
+            <div class="exp-vessel">Italian Navy — San Marco Marine Brigade</div>
+            <div class="exp-role">Marine Specialist (SDI) · Elite Honor Guard (S.O.C.)</div>
+            <div class="exp-date">Sep 2007 – May 2009 · Rome &amp; Brindisi</div>
+            <ul class="exp-bullets">
+              <li>Strict military discipline, boat management &amp; advanced surveillance</li>
+              <li>Emergency response, equipment maintenance &amp; night watch in all conditions</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="cv-footer">
+    <span class="f-l">Renato Ferrari &nbsp;·&nbsp; Deckhand M/Y &nbsp;·&nbsp; 2026</span>
+    <span class="f-r">renato.ferrari.gi@gmail.com</span>
+  </footer>
+
+</div>
+
+</body>
+</html>
