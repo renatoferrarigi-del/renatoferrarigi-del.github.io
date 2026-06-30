@@ -412,7 +412,7 @@ body {
         </div>
         <div class="c-row">
           <span class="c-key">L</span>
-          <span class="c-val">Lake Garda, Italy</span>
+          <span class="c-val">44°24′26″N 8°55′23″E</span>
         </div>
       </div>
 
@@ -424,6 +424,8 @@ body {
         <div class="cert">Italian Boating License (Up to 24m, Unlimited Power)</div>
         <div class="cert">PADI Open Water</div>
         <div class="cert">Lifeguard Certificate</div>
+        <div class="cert">Italian Passport — Valid</div>
+        <div class="cert">Seaman's Book (Italian)</div>
         <div class="cert" style="color:rgba(237,136,128,0.65);font-style:italic;border-top:1px solid rgba(237,136,128,0.12);margin-top:4px;padding-top:7px;">&#43; VHF SRC (RYA) — exam in preparation</div>
       </div>
 
